@@ -1,16 +1,12 @@
 package test;
 
-import net.risingworld.api.Internals;
 import net.risingworld.api.Plugin;
-import net.risingworld.api.World;
 import net.risingworld.api.assets.AssetBundle;
 import net.risingworld.api.assets.PrefabAsset;
-//import net.risingworld.api.assets.Prefab;
 import net.risingworld.api.events.EventMethod;
 import net.risingworld.api.events.Listener;
 import net.risingworld.api.events.player.PlayerKeyEvent;
 import net.risingworld.api.events.player.PlayerSpawnEvent;
-import net.risingworld.api.objects.Item;
 import net.risingworld.api.objects.Player;
 import net.risingworld.api.utils.Key;
 import net.risingworld.api.utils.Layer;
@@ -19,21 +15,13 @@ import net.risingworld.api.utils.RaycastResult;
 import net.risingworld.api.utils.Vector3f;
 import net.risingworld.api.worldelements.Prefab;
 
-//import net.risingworld.api.Internals;
-
 public class Test extends Plugin implements Listener {
 
 	private AssetBundle bundle;
-	
-	public Item sticks;
-	/**
-	 * 
-	 */
 	public PrefabAsset StoneEntrance;
 	
 	@Override
-	public void onEnable() 
-	{
+	public void onEnable() {
 		System.out.println("Path detected : ´" + getPath() + "´");
 		bundle = AssetBundle.loadFromFile(getPath() + "/resources/stonewalls.bundle");	
 		StoneEntrance = PrefabAsset.loadFromAssetBundle(bundle, "StoneEntrance");
@@ -57,7 +45,7 @@ public class Test extends Plugin implements Listener {
 		Player player = evt.getPlayer();
 
 		player.setListenForKeyInput(true);
-		player.registerKeys(Key.P, Key.U, Key.M,Key.O);
+		player.registerKeys(Key.P, Key.U);
 		player.showSuccessMessageBox("<color=red>Willkommen","Dein´erstes Plugin wurde erfolgreich geladen.");
 		
 	}
@@ -66,6 +54,7 @@ public class Test extends Plugin implements Listener {
 	public void keyInput(PlayerKeyEvent evt) {
 		Player player = evt.getPlayer();
 		if (evt.isPressed()) {
+			
 			if (evt.getKey() == Key.P) {
 				player.sendTextMessage("<color=green>Wasili ... ein Ping");
 				int layerMask = Layer.getBitmask(Layer.OBJECT, Layer.TERRAIN,Layer.CONSTRUCTION);
@@ -80,10 +69,6 @@ public class Test extends Plugin implements Listener {
 					}
 				});
 			}
-			if (evt.getKey() == Key.O) {
-				int ore = World.getOreAmount();
-				player.showStatusMessage("Ore :" + ore, 5);
-			}
 
 			if (evt.getKey() == Key.U) {
 				player.sendTextMessage("<color=blue>Wasilios ... Erzeuge Ein Prefab");
@@ -95,18 +80,12 @@ public class Test extends Plugin implements Listener {
 						//GameObject go = new GameObject(Layer.CONSTRUCTION);
 						
 						player.addGameObject(prefab);
-						player.sendTextMessage("added : ");
-						Internals.forceSyncAsset(player, StoneEntrance);
+						player.sendTextMessage("added Prefab : "+ prefab.getID());
+						//Internals.forceSyncAsset(player, StoneEntrance);
 						
 						player.sendTextMessage("Entrance summoned!");
 					}
 				});
-			}
-			
-			if (evt.getKey() == Key.M) {
-				player.sendTextMessage("<color=blue>Wasilios ... eine Map");
-				player.showMap(false);
-				player.showJournal();
 			}
 		}
 	}
@@ -121,6 +100,5 @@ public class Test extends Plugin implements Listener {
 		prefab.setLocalScale(scale, scale, scale);
 		return prefab;
 	}
-
 
 }
