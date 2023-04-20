@@ -1,0 +1,7 @@
+name: Test
+main: Test.Test
+version: 1.0.0
+author: srasra
+description: "Nothing at all"
+license: MIT
+website: http://www.YouDontFindMe.com
