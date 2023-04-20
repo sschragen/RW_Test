@@ -1,4 +1,4 @@
-package main;
+package helper;
 
 import net.risingworld.api.callbacks.Callback;
 import net.risingworld.api.utils.RaycastResult;

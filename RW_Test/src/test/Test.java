@@ -1,10 +1,11 @@
-package main;
+package test;
 
 import net.risingworld.api.Internals;
 import net.risingworld.api.Plugin;
 import net.risingworld.api.World;
 import net.risingworld.api.assets.AssetBundle;
 import net.risingworld.api.assets.PrefabAsset;
+//import net.risingworld.api.assets.Prefab;
 import net.risingworld.api.events.EventMethod;
 import net.risingworld.api.events.Listener;
 import net.risingworld.api.events.player.PlayerKeyEvent;
@@ -16,8 +17,8 @@ import net.risingworld.api.utils.Layer;
 import net.risingworld.api.utils.Quaternion;
 import net.risingworld.api.utils.RaycastResult;
 import net.risingworld.api.utils.Vector3f;
-import net.risingworld.api.worldelements.GameObject;
 import net.risingworld.api.worldelements.Prefab;
+
 //import net.risingworld.api.Internals;
 
 public class Test extends Plugin implements Listener {
@@ -25,6 +26,9 @@ public class Test extends Plugin implements Listener {
 	private AssetBundle bundle;
 	
 	public Item sticks;
+	/**
+	 * 
+	 */
 	public PrefabAsset StoneEntrance;
 	
 	@Override
@@ -33,13 +37,6 @@ public class Test extends Plugin implements Listener {
 		System.out.println("Path detected : ´" + getPath() + "´");
 		bundle = AssetBundle.loadFromFile(getPath() + "/resources/stonewalls.bundle");	
 		StoneEntrance = PrefabAsset.loadFromAssetBundle(bundle, "StoneEntrance");
-		
-		
-		//Database database = getSQLiteConnection(getPath() + "/" + "MyTestDatabase.db");
-		//execute CREATE sql statement
-		//database.execute("CREATE TABLE IF NOT EXISTS `Players` (`ID` INTEGER PRIMARY KEY NOT NULL, `Name` VARCHAR(64), `Level` INTEGER)");
-		//close database connection only if it's no longer needed
-		//database.close();
 
 		registerEventListener(this);
 		

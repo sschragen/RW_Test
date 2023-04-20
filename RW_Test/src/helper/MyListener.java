@@ -1,4 +1,4 @@
-package main;
+package helper;
 
 import net.risingworld.api.Plugin;
 import net.risingworld.api.assets.AssetBundle;
