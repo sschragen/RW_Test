@@ -1,4 +1,4 @@
-package helper;
+package temp;
 
 import net.risingworld.api.Plugin;
 import net.risingworld.api.assets.AssetBundle;
