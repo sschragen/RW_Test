@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<jardesc>
+    <jar path="C:/Program Files (x86)/Steam/steamapps/common/RisingWorld/_New Version/Plugins/Test/RW_Test.jar"/>
+    <options buildIfNeeded="true" compress="false" descriptionLocation="/RW_Test/RW_TestJar.jardesc" exportErrors="true" exportWarnings="true" includeDirectoryEntries="true" overwrite="true" saveDescription="true" storeRefactorings="false" useSourceFolders="false"/>
+    <storedRefactorings deprecationInfo="true" structuralOnly="false"/>
+    <selectedProjects/>
+    <manifest generateManifest="true" manifestLocation="" manifestVersion="1.0" reuseManifest="false" saveManifest="false" usesManifest="true">
+        <sealing sealJar="false">
+            <packagesToSeal/>
+            <packagesToUnSeal/>
+        </sealing>
+    </manifest>
+    <selectedElements exportClassFiles="true" exportJavaFiles="false" exportOutputFolder="false">
+        <javaElement handleIdentifier="=RW_Test/&lt;resources"/>
+        <file path="/RW_Test/.gitignore"/>
+        <file path="/RW_Test/.classpath"/>
+        <file path="/RW_Test/.project"/>
+        <javaElement handleIdentifier="=RW_Test/src"/>
+    </selectedElements>
+</jardesc>
